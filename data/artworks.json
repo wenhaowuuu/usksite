@@ -1,0 +1,100 @@
+{
+  "artworks": [
+    {
+      "id": "ps_10thStreet_Chinatown",
+      "filename": "ps_10thStreet_Chinatown.jpg",
+      "title": "10th Street Chinatown",
+      "year": "2024",
+      "location": "San Francisco, CA",
+      "description": "A bustling corner in San Francisco's vibrant Chinatown district, captured during the golden hour. The interplay of traditional architecture and modern urban life creates a dynamic composition. Street vendors and passersby add life and movement to this timeless neighborhood scene."
+    },
+    {
+      "id": "ps_241026_BayBridge",
+      "filename": "ps_241026_BayBridge.jpg",
+      "title": "Bay Bridge Vista",
+      "year": "2024",
+      "location": "San Francisco Bay Area, CA",
+      "description": "The iconic Bay Bridge stretches majestically across the water, connecting Oakland to San Francisco. Morning light illuminates the steel structure against a backdrop of rolling hills. This engineering marvel serves as both transportation lifeline and architectural landmark for the Bay Area."
+    },
+    {
+      "id": "ps_241026_BerkeleyConcerts",
+      "filename": "ps_241026_BerkeleyConcerts.jpg",
+      "title": "Berkeley Concerts",
+      "year": "2024",
+      "location": "Berkeley, CA",
+      "description": "Musicians gather in a Berkeley park for an impromptu outdoor concert, bringing community together through music. The informal setting allows for intimate performances under California's endless blue sky. Local residents pause their daily routines to enjoy this spontaneous cultural moment."
+    },
+    {
+      "id": "PS_241026_LakeMerritt",
+      "filename": "PS_241026_LakeMerritt.jpg",
+      "title": "Lake Merritt Reflections",
+      "year": "2024",
+      "location": "Oakland, CA",
+      "description": "Oakland's Lake Merritt serves as an urban oasis where joggers, families, and nature enthusiasts converge. The calm waters reflect both the natural landscape and surrounding cityscape in perfect harmony. This beloved local landmark offers respite from city life while remaining at its heart."
+    },
+    {
+      "id": "ps_bay_view_from_bart",
+      "filename": "ps_bay_view_from_bart.jpg",
+      "title": "Bay View from BART",
+      "year": "2024",
+      "location": "San Francisco Bay Area, CA",
+      "description": "The dramatic panorama of San Francisco Bay unfolds from the BART train windows during the daily commute. Industrial structures and natural beauty coexist in this transitional landscape between cities. Passengers witness this ever-changing view as they traverse the region's diverse geography."
+    },
+    {
+      "id": "ps_dogpatch",
+      "filename": "ps_dogpatch.jpg",
+      "title": "Dogpatch District",
+      "year": "2025",
+      "location": "San Francisco, CA",
+      "description": "The historic Dogpatch neighborhood showcases San Francisco's industrial heritage alongside modern development. Converted warehouses and new construction create an eclectic architectural dialogue. This evolving district maintains its working-class character while embracing contemporary urban growth."
+    },
+    {
+      "id": "ps_Dolores_Park_16th_St_BART",
+      "filename": "ps_Dolores Park 16th St BART.jpg",
+      "title": "Dolores Park & 16th Street BART",
+      "year": "2025",
+      "location": "San Francisco, CA",
+      "description": "The vibrant intersection where Dolores Park meets the 16th Street BART station captures San Francisco's diverse urban rhythm. Park-goers and commuters share this dynamic space throughout the day. The juxtaposition of recreational green space and transit infrastructure defines modern city living."
+    },
+    {
+      "id": "ps_ferrybldg_park",
+      "filename": "ps_ferrybldg_park.jpg",
+      "title": "Ferry Building Park",
+      "year": "2024",
+      "location": "San Francisco, CA",
+      "description": "The historic Ferry Building anchors San Francisco's waterfront with its distinctive clock tower and bustling marketplace. Locals and tourists gather in the adjacent park to enjoy bay views and artisanal food. This landmark represents the city's maritime heritage and contemporary culinary culture."
+    },
+    {
+      "id": "ps_foodtruck_la_jalisciense",
+      "filename": "ps_foodtruck_la_jalisciense.jpg",
+      "title": "La Jalisciense Food Truck",
+      "year": "2024",
+      "location": "Bay Area, CA",
+      "description": "A colorful food truck serves authentic Mexican cuisine to the local community, embodying the cultural diversity of the Bay Area. The vibrant vehicle becomes a social gathering point where food brings people together. Street food culture thrives in these mobile restaurants that dot the urban landscape."
+    },
+    {
+      "id": "ps_PRP_plaza",
+      "filename": "ps_PRP_plaza.jpg",
+      "title": "PRP Plaza",
+      "year": "2024",
+      "location": "Bay Area, CA",
+      "description": "A bustling public plaza where office workers, residents, and visitors converge during lunch hours and evening commutes. Modern architecture frames this urban gathering space designed for community interaction. The plaza exemplifies contemporary urban planning that prioritizes pedestrian-friendly public spaces."
+    },
+    {
+      "id": "PS_WashingtonSquare2",
+      "filename": "PS_WashingtonSquare2.jpg",
+      "title": "Washington Square Park",
+      "year": "2024",
+      "location": "San Francisco, CA",
+      "description": "Washington Square Park in North Beach serves as a beloved neighborhood commons where locals practice tai chi, walk dogs, and enjoy outdoor activities. The park's mature trees provide shade for families and elderly residents seeking respite. This green heart of Little Italy maintains its community character amid urban density."
+    },
+    {
+      "id": "PS2_Oakland_Sky_View",
+      "filename": "PS2_Oakland_Sky_View.jpg",
+      "title": "Oakland Sky View",
+      "year": "2024",
+      "location": "Oakland, CA",
+      "description": "Oakland's skyline emerges through morning fog, revealing the city's architectural diversity and natural beauty. The interplay of light and shadow across urban surfaces creates a constantly changing canvas. This elevated perspective showcases how the city nestles between bay waters and rolling hills."
+    }
+  ]
+}

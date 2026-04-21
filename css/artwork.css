@@ -1,0 +1,185 @@
+/* Artwork detail page styles */
+.artwork-main {
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.artwork-container {
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    width: 100%;
+}
+
+.artwork-image {
+    position: relative;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.artwork-image:hover {
+    transform: scale(1.02);
+}
+
+.artwork-image img {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+    display: block;
+}
+
+.artwork-details {
+    padding: 2rem 0;
+}
+
+.artwork-details h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.artwork-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: #7f8c8d;
+}
+
+.artwork-meta .year,
+.artwork-meta .location {
+    position: relative;
+}
+
+.artwork-meta .year::after {
+    content: "•";
+    margin-left: 1rem;
+    color: #bdc3c7;
+}
+
+.artwork-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #34495e;
+    margin-bottom: 2rem;
+    max-width: 500px;
+}
+
+.artwork-actions {
+    margin-top: 2rem;
+}
+
+.btn-back {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-back:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* Navigation adjustments for artwork pages */
+.nav-links a[href="../index.html"] {
+    background-color: #ecf0f1;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links a[href="../index.html"]:hover {
+    background-color: #d5dbdb;
+}
+
+/* Responsive design for artwork pages */
+@media (max-width: 968px) {
+    .artwork-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .artwork-details h1 {
+        font-size: 2rem;
+    }
+
+    .artwork-description {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .artwork-main {
+        padding: 1rem;
+    }
+
+    .artwork-details {
+        padding: 1rem 0;
+    }
+
+    .artwork-details h1 {
+        font-size: 1.8rem;
+    }
+
+    .artwork-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    .artwork-meta .year::after {
+        display: none;
+    }
+
+    .artwork-image img {
+        max-height: 50vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .artwork-details h1 {
+        font-size: 1.5rem;
+    }
+
+    .artwork-description {
+        font-size: 1rem;
+    }
+
+    .btn-back {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Animation for artwork page load */
+.artwork-container {
+    animation: fadeInArtwork 0.8s ease-out;
+}
+
+@keyframes fadeInArtwork {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
