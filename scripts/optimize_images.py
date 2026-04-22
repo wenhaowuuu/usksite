@@ -12,8 +12,8 @@ import sys
 from PIL import Image, ImageDraw, ImageFont
 import argparse
 
-def add_watermark(image, watermark_text="© Wenhao Wu", opacity=0.3):
-    """Add a diagonal watermark to the image"""
+def add_watermark(image, watermark_text="© Wenhao Wu", opacity=0.25):
+    """Add horizontal watermarks to the image"""
     # Create a copy to work with
     watermarked = image.copy()
 
@@ -23,7 +23,7 @@ def add_watermark(image, watermark_text="© Wenhao Wu", opacity=0.3):
 
     # Try to use a system font
     try:
-        font_size = max(30, min(watermarked.width, watermarked.height) // 15)
+        font_size = max(20, min(watermarked.width, watermarked.height) // 20)
         font = ImageFont.truetype("/System/Library/Fonts/Arial.ttf", font_size)
     except:
         font = ImageFont.load_default()
@@ -33,36 +33,38 @@ def add_watermark(image, watermark_text="© Wenhao Wu", opacity=0.3):
     text_width = bbox[2] - bbox[0]
     text_height = bbox[3] - bbox[1]
 
-    # Position watermark in center
-    x = (watermarked.width - text_width) // 2
-    y = (watermarked.height - text_height) // 2
-
     # Create watermark with opacity
     alpha = int(255 * opacity)
 
-    # Add multiple watermarks for better protection
+    # Add only 2 subtle horizontal watermarks
     positions = [
-        (x, y),  # Center
-        (50, 50),  # Top left
-        (watermarked.width - text_width - 50, watermarked.height - text_height - 50),  # Bottom right
-        (50, watermarked.height - text_height - 50),  # Bottom left
-        (watermarked.width - text_width - 50, 50),  # Top right
+        (30, 30),  # Top left
+        (watermarked.width - text_width - 30, watermarked.height - text_height - 30),  # Bottom right
     ]
 
     for pos_x, pos_y in positions:
-        # White text with shadow
-        draw.text((pos_x + 2, pos_y + 2), watermark_text, font=font, fill=(0, 0, 0, alpha//2))
+        # Add subtle shadow for better readability
+        draw.text((pos_x + 1, pos_y + 1), watermark_text, font=font, fill=(0, 0, 0, alpha//3))
+        # Main watermark text
         draw.text((pos_x, pos_y), watermark_text, font=font, fill=(255, 255, 255, alpha))
 
     # Composite the overlay onto the original image
     watermarked = Image.alpha_composite(watermarked.convert('RGBA'), overlay)
     return watermarked.convert('RGB')
 
-def optimize_image(input_path, output_path, max_width=800, quality=75):
-    """Optimize image for web display"""
+def optimize_image(input_path, output_path, max_width=800, quality=80):
+    """Optimize image for web display with better color preservation"""
     with Image.open(input_path) as img:
-        # Convert to RGB if necessary
-        if img.mode in ('RGBA', 'LA', 'P'):
+        # Preserve original color profile if possible
+        original_mode = img.mode
+
+        # Convert to RGB if necessary, but preserve color characteristics
+        if img.mode in ('RGBA', 'LA'):
+            # For images with transparency, composite on white background
+            background = Image.new('RGB', img.size, (255, 255, 255))
+            background.paste(img, mask=img.split()[-1] if img.mode == 'RGBA' else None)
+            img = background
+        elif img.mode == 'P':
             img = img.convert('RGB')
 
         # Calculate new dimensions
@@ -70,13 +72,15 @@ def optimize_image(input_path, output_path, max_width=800, quality=75):
         if width > max_width:
             new_width = max_width
             new_height = int((height * max_width) / width)
+            # Use high-quality resampling to preserve details and colors
             img = img.resize((new_width, new_height), Image.Resampling.LANCZOS)
 
-        # Add watermark
-        img = add_watermark(img, "© Wenhao Wu • wenhaosketching.com", opacity=0.4)
+        # Add subtle watermark
+        img = add_watermark(img, "© Wenhao Wu", opacity=0.25)
 
-        # Save with optimization
-        img.save(output_path, 'JPEG', quality=quality, optimize=True)
+        # Save with better quality settings for color preservation
+        img.save(output_path, 'JPEG', quality=quality, optimize=True,
+                subsampling=0, progressive=True)
 
         # Get file sizes
         original_size = os.path.getsize(input_path)
@@ -89,7 +93,7 @@ def main():
     parser.add_argument('input_dir', help='Input directory containing images')
     parser.add_argument('output_dir', help='Output directory for optimized images')
     parser.add_argument('--max-width', type=int, default=800, help='Maximum width in pixels (default: 800)')
-    parser.add_argument('--quality', type=int, default=75, help='JPEG quality 1-100 (default: 75)')
+    parser.add_argument('--quality', type=int, default=80, help='JPEG quality 1-100 (default: 80)')
 
     args = parser.parse_args()
 
