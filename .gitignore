@@ -1,0 +1,32 @@
+# Original high-resolution images (keep these private)
+images_original/
+*.orig
+*_original.*
+*_highres.*
+
+# Development files
+.DS_Store
+*.log
+node_modules/
+.env
+.env.local
+
+# Backup files
+*.bak
+*~
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python cache (for image optimization scripts)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Image processing temporary files
+temp_images/
+processed/
