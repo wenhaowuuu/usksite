@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Bio - Wenhao Wu</title>
+    <meta name="description" content="About Wenhao Wu - Urban designer and sketch artist capturing Bay Area communities">
+    <meta name="author" content="Wenhao Wu">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="nav-bar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>Wenhao Wu</h1>
+                    <p class="subtitle">Urban Sketching</p>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Gallery</a></li>
+                    <li><a href="https://sites.google.com/view/wenhaowu/home" target="_blank" rel="noopener">More Work</a></li>
+                    <li><a href="https://venmo.com/u/SWDHFD" target="_blank" rel="noopener">Support My Sketches</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="bio-content">
+            <h2>Artist Bio</h2>
+            <p>Wenhao is an urban designer and sketch artist from Hunan, China. His love for communities and art began in childhood, sketching busy urban alleyways and vibrant street life. He believes in the power of small, place-based changes to improve quality of life. You'll often find him exploring Bay Area cities with his sketchbook, discovering new foods, and capturing the stories of the built environment.</p>
+
+            <div class="social-links">
+                <a href="https://www.instagram.com/wenhaosketching/?r=nametag" target="_blank" rel="noopener">Follow on Instagram</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Wenhao Wu. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Image protection for bio page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Disable right-click context menu
+            document.addEventListener('contextmenu', (e) => {
+                e.preventDefault();
+                return false;
+            });
+
+            // Disable common keyboard shortcuts
+            document.addEventListener('keydown', (e) => {
+                if (e.ctrlKey && (e.key === 's' || e.key === 'a' || e.key === 'c' || e.key === 'v' || e.key === 'p' || e.key === 'u')) {
+                    e.preventDefault();
+                    return false;
+                }
+                if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+
+            // Disable text selection
+            document.addEventListener('selectstart', (e) => {
+                e.preventDefault();
+                return false;
+            });
+        });
+    </script>
+</body>
+
+</html>

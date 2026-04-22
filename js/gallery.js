@@ -140,6 +140,79 @@ class GalleryManager {
         window.addEventListener('resize', () => {
             this.hideTooltip();
         });
+
+        // Setup image protection
+        this.setupImageProtection();
+    }
+
+    setupImageProtection() {
+        // Disable right-click context menu
+        document.addEventListener('contextmenu', (e) => {
+            if (e.target.tagName === 'IMG' || e.target.closest('.gallery-item')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Disable common keyboard shortcuts for saving/copying images
+        document.addEventListener('keydown', (e) => {
+            // Disable Ctrl+S (Save), Ctrl+A (Select All), Ctrl+C (Copy), Ctrl+V (Paste)
+            // Disable Ctrl+P (Print), Ctrl+U (View Source)
+            // Disable F12 (Developer Tools), Ctrl+Shift+I (Developer Tools)
+            if (e.ctrlKey && (e.key === 's' || e.key === 'a' || e.key === 'c' || e.key === 'v' || e.key === 'p' || e.key === 'u')) {
+                e.preventDefault();
+                return false;
+            }
+
+            // Disable F12 and Ctrl+Shift+I (Developer Tools)
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
+                e.preventDefault();
+                return false;
+            }
+
+            // Disable Ctrl+Shift+J (Console)
+            if (e.ctrlKey && e.shiftKey && e.key === 'J') {
+                e.preventDefault();
+                return false;
+            }
+
+            // Disable Ctrl+U (View Source)
+            if (e.ctrlKey && e.key === 'u') {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Disable drag and drop for images
+        document.addEventListener('dragstart', (e) => {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Disable text selection on images and gallery items
+        document.addEventListener('selectstart', (e) => {
+            if (e.target.tagName === 'IMG' || e.target.closest('.gallery-item')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Add additional protection for mobile devices
+        document.addEventListener('touchstart', (e) => {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+            }
+        });
+
+        // Disable image operations via mouse events
+        document.addEventListener('mousedown', (e) => {
+            if (e.target.tagName === 'IMG' && e.button === 2) { // Right click
+                e.preventDefault();
+                return false;
+            }
+        });
     }
 
     showErrorMessage() {
